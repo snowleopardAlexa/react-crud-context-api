@@ -2,7 +2,7 @@ import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 
-export const Listarticle = () => {
+const Listarticle = () => {
   const { article, editArticle, deleteArticle } = useContext(GlobalContext);
   // console.log(article);
   return (
@@ -131,3 +131,4 @@ export const Listarticle = () => {
   );
 };
 
+export default Listarticle;

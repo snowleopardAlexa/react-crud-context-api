@@ -2,7 +2,7 @@ import React, { Fragment, useContext, useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 
-export const Editarticle = route => {
+const Editarticle = route => {
   let history = useHistory();
   const { article, editArticle } = useContext(GlobalContext);
   const [selectedArticle, setSelectedArticle] = useState({
@@ -101,3 +101,5 @@ export const Editarticle = route => {
     </Fragment>
   );
 };
+
+export default Editarticle;

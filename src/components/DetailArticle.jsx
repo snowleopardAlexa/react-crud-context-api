@@ -2,7 +2,7 @@ import React, { Fragment, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 
-export const Detailarticle = (route) => {
+const Detailarticle = (route) => {
   const [data, setData] = useState('');
   const {article} = useContext(GlobalContext);
   const currentArticleId = route.match.params.id;
@@ -74,3 +74,5 @@ export const Detailarticle = (route) => {
 		</Fragment>
 	);
 };
+
+export default Detailarticle;
