@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DeleteArticle = () => {
+const DetailArticle = () => {
     return (
         <div>
            
@@ -8,4 +8,4 @@ const DeleteArticle = () => {
     )
 }
 
-export default DeleteArticle;
+export default DetailArticle;
