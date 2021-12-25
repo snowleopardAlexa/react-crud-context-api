@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { GlobalContext } from '../context/GlobalState';
 
 const ListArticle = () => {
 
@@ -7,6 +8,8 @@ const [subheading, setsubHeading] = useState('');
 const [description, setDescription] = useState('');
 const [category, setCategory] = useState('');
 const [author, setAuthor] = useState('');
+
+const {createArticle, article} = useContext(GlobalContext);
 
 const onSubmit = e => {
     e.preventDefault();
@@ -18,6 +21,8 @@ const onSubmit = e => {
         category,
         author
     }
+    
+    createArticle(articleNew);
 }
 
     return (
