@@ -30,7 +30,7 @@ export const GlobalProvider = ({ children }) => {
     }
 
     // delete book function
-    function deleteBook(book) {
+    function deleteBook(id) {
         dispatch ({
             type: 'DELETE_BOOK',
             payload: id

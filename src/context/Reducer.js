@@ -1,30 +1,29 @@
-export default (state,action) => {
-    switch(action.type){
-        case 'CREATE_ARTICLE':
-            return{
+export default (state, action) => {
+    switch(action.type) {
+        case 'CREATE_BOOK':
+            return {
                 ...state,
-                article: [...state.article, action.payload]
+                book: [...state.book, action.payload]
             };
-        
-        case 'EDIT_ARTICLE':
-            const editingArticle = action.payload;
-            const updatedArticle = state.article.map(article=>{
-                if(article.id === editingArticle.id){
-                    return editingArticle;
+
+        case 'EDIT_BOOK':
+            const editingBook = action.payload;
+            const updatedBook = state.action.map(book => {
+                if (book.id === editingBook.id) {
+                    return editingBook;
                 }
-                return article;
+                return book;
             });
-            return{
+            return {
                 ...state,
-                article: updatedArticle
-            }
+                book: updatedBook
+            }  
 
-            case 'DELETE_ARTICLE':
-                return { 
+            case 'DELETE_BOOK':
+                return {
                     ...state,
-                    article: state.article.filter(article => article.id !== action.payload)
+                    book: state.book.filter(book => book.id !== action.payload)
                 };
-
-            default: return state;
+                default: return state;
     }
-} 
+}
