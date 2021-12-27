@@ -2,16 +2,18 @@ import React, { Fragment, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 
-const Detailarticle = (route) => {
+const DetailBook = (route) => {
   const [data, setData] = useState('');
-  const {article} = useContext(GlobalContext);
-  const currentArticleId = route.match.params.id;
-  useEffect(()=>{
-    const articleId = currentArticleId;
-    const selectedArticle = article.find(x => x.id === parseInt(articleId));
-    setData(selectedArticle)
+  const {book} = useContext(GlobalContext);
+  const currentBookId = route.match.params.id;
+
+  useEffect(() => {
+    const bookId = currentBookId;
+    const selectedBook = book.find(x => x.id === parseInt(bookId));
+    setData(selectedBook)
     // eslint-disable-next-line
   },[])
+  
   return (
 		<Fragment>
 			<div className="Articledetail">
@@ -53,17 +55,17 @@ const Detailarticle = (route) => {
 								<div className="col-md-12">
 									<span>{data && data.category}</span>
 									<h4>
-                  {data && data.heading}
+                                       {data && data.title}
 									</h4>
 									<p>
-                  {data && data.subHeading}
+                                       {data && data.subTitle}
 									</p>
 									<br /> <br />
 									<p>
-                  {data && data.description}
+                                       {data && data.description}
 									</p>
 									<span>
-										<b>{data && data.author}</b>
+									   <b>{data && data.author}</b>
 									</span>
 								</div>
 							</div>
@@ -75,4 +77,4 @@ const Detailarticle = (route) => {
 	);
 };
 
-export default Detailarticle;
+export default DetailBook;

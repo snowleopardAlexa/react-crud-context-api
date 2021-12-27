@@ -46,3 +46,5 @@ export const GlobalProvider = ({ children }) => {
         {children}
     </GlobalContext.Provider>); 
 }
+
+// payload contains the data you add to your database, the metadaata is along for ride to be logged out or captured in an error tracking system for diagnostic purposes if something goes wrong
