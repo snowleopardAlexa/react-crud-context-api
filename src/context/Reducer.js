@@ -1,3 +1,6 @@
+// Reducer - a pure function, accepting a state and action, and returning a new state, action.
+// action - an object literal that describes a change to state. 
+
 export default (state, action) => {
     switch(action.type) {
         case 'CREATE_BOOK':
