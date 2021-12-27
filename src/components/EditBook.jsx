@@ -32,7 +32,6 @@ const EditBook = route => {
   };
 
   
-
   return (
     <Fragment>
       <div className="container">
