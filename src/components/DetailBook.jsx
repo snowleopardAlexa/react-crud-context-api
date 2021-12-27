@@ -1,4 +1,5 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
+import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 
@@ -13,7 +14,7 @@ const DetailBook = (route) => {
     setData(selectedBook)
     // eslint-disable-next-line
   },[])
-  
+
   return (
 		<Fragment>
 			<div className="Articledetail">
@@ -23,28 +24,7 @@ const DetailBook = (route) => {
 							<div className="col-md-12">
 								<Link to="/">
 									<small>
-										<svg
-											width="19"
-											height="19"
-											viewBox="0 0 19 19"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<path
-												d="M15.0416 9.5H3.95831"
-												stroke="#2F7EF7"
-												strokeWidth="2"
-												strokeLinecap="round"
-												strokeLinejoin="round"
-											/>
-											<path
-												d="M9.49998 15.0416L3.95831 9.49992L9.49998 3.95825"
-												stroke="#2F7EF7"
-												strokeWidth="2"
-												strokeLinecap="round"
-												strokeLinejoin="round"
-											/>
-										</svg>
+										<BsFillArrowLeftCircleFill />
 										Go back
 									</small>
 								</Link>

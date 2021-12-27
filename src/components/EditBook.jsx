@@ -44,7 +44,7 @@ const EditBook = route => {
               type="text"
               className="form-control"
               value={selectedBook.title}
-              onChange={e => handleOnChange("heading", e.target.value)}
+              onChange={e => handleOnChange("title", e.target.value)}
             />
           </div>
           <div className="form-group">
@@ -54,7 +54,7 @@ const EditBook = route => {
               id="exampleFormControlTextarea1"
               rows="2"
               value={selectedBook.subTitle}
-              onChange={e => handleOnChange("subHeading", e.target.value)}
+              onChange={e => handleOnChange("subTitle", e.target.value)}
             ></textarea>
           </div>
           <div className="form-group">

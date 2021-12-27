@@ -12,7 +12,7 @@ export default (state, action) => {
 
         case 'EDIT_BOOK':
             const editingBook = action.payload;
-            const updatedBook = state.action.map(book => {
+            const updatedBook = state.book.map(book => {
                 if (book.id === editingBook.id) {
                     return editingBook;
                 }
