@@ -1,42 +1,48 @@
 import React, { createContext, useReducer } from 'react';
-import Reducer from './Reducer'
+import Reducer from './Reducer';
 
 const initialState = {
     book: []
 }
 
+// shares data that can be considered global for a tree of React components
 export const GlobalContext = createContext(initialState);
+
+// 
+// dispatch - send off to a destination
 export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(Reducer, initialState);
 
-    function createBook(book){
+    // create book function
+    function createBook(book) {
         dispatch ({
             type: 'CREATE_BOOK',
-            payload: book
+            payload: book // payload - actual info or message in transmitted data as oppossed to automatically generated metadata
         })
     }
 
-    function deleteBook(id) {
+    // edit book function
+      function editBook(book) {
         dispatch ({
-            type: 'DELETE_BOOK',
-            payload: id
-        });
-    };
- 
-
-    function editBook(book){
-        dispatch({
             type: 'EDIT_BOOK',
             payload: book
         })
     }
 
+    // delete book function
+    function deleteBook(book) {
+        dispatch ({
+            type: 'DELETE_BOOK',
+            payload: id
+        })
+    }
+
     return (<GlobalContext.Provider value={{
-        book: state.book,
-        createBook,
-        editBook,
-        deleteBook
+          book: state.book,
+          createBook,
+          editBook,
+          deleteBook
     }}>
         {children}
-    </GlobalContext.Provider>);
+    </GlobalContext.Provider>); 
 }
