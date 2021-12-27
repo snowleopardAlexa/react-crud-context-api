@@ -2,8 +2,8 @@ import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 
-const Listarticle = () => {
-  const { article, editArticle, deleteArticle } = useContext(GlobalContext);
+const ListBook = () => {
+  const { book, editBook, deleteBook } = useContext(GlobalContext);
   // console.log(article);
   return (
     <Fragment>
@@ -14,38 +14,38 @@ const Listarticle = () => {
               <h3>Article Inventory</h3>
             </div>
             <div className="col-md-4 text-right">
-              {article.length >= 1 ? (
+              {book.length >= 1 ? (
                 <Link to="/create">
                   <button type="button" className="btn btn-primary">
-                    Create New Article
+                    Create New Book
                   </button>
                 </Link>
               ) : (
-                <p></p>
+              <p></p>
               )}
             </div>
           </div>
           <div>
             <div className="listing">
               <div className="row">
-                {article.length > 0 ? (
+                {book.length > 0 ? (
                   <div className="col-md-12">
-                    {article.map(article => (
-                      <div key={article.id}>
+                    {book.map(book => (
+                      <div key={book.id}>
                         <div className="listBox">
                           <div className="row">
                             <div className="col-md-8">
-                              <Link to={`/detail/${article.id}`}>
-                                <span>{article.category}</span>
-                                <h4>{article.heading}</h4>
-                                <p>{article.subHeading}</p>
-                                <span>{article.author}</span>
+                              <Link to={`/detail/${book.id}`}>
+                                <span>{book.category}</span>
+                                <h4>{book.title}</h4>
+                                <p>{book.subTitle}</p>
+                                <span>{book.author}</span>
                               </Link>
                             </div>
                             <div className="col-md-4 actionIcons text-right">
-                              <Link to={`/edit/${article.id}`}>
+                              <Link to={`/edit/${book.id}`}>
                                 <div
-                                  onClick={() => editArticle(article.id)}
+                                  onClick={() => editBook(book.id)}
                                   className="roundIcon"
                                 >
                                   <svg
@@ -66,7 +66,7 @@ const Listarticle = () => {
                                 </div>
                               </Link>
                               <div className="roundIcon">
-                                <button className="noBg" onClick={() => deleteArticle(article.id)} >
+                                <button className="noBg" onClick={() => deleteBook(book.id)} >
                                 <svg
                                   width="24"
                                   height="24"
@@ -114,10 +114,10 @@ const Listarticle = () => {
                   </div>
                 ) : (
                   <div className="noList">
-                    <p>It Seems you dont have any articles</p>
+                    <p>It Seems you dont have any books</p>
                     <Link to="/create">
                       <button type="button" className="btn btn-primary">
-                        Create New Article
+                        Create New Book
                       </button>
                     </Link>
                   </div>
@@ -131,4 +131,4 @@ const Listarticle = () => {
   );
 };
 
-export default Listarticle;
+export default ListBook;
