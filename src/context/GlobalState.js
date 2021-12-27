@@ -2,40 +2,40 @@ import React, { createContext, useReducer } from 'react';
 import Reducer from './Reducer'
 
 const initialState = {
-    article: []
+    book: []
 }
 
 export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
-    const [state,dispatch] = useReducer(Reducer,initialState);
+    const [state, dispatch] = useReducer(Reducer, initialState);
 
-    function createArticle(article){
-        dispatch({
-            type: 'CREATE_ARTICLE',
-            payload: article
+    function createBook(book){
+        dispatch ({
+            type: 'CREATE_BOOK',
+            payload: book
         })
     }
 
-    function deleteArticle(id) {
-        dispatch({
-            type: 'DELETE_ARTICLE',
+    function deleteBook(id) {
+        dispatch ({
+            type: 'DELETE_BOOK',
             payload: id
         });
     };
  
 
-    function editArticle(article){
+    function editBook(book){
         dispatch({
-            type: 'EDIT_ARTICLE',
-            payload: article
+            type: 'EDIT_BOOK',
+            payload: book
         })
     }
 
     return (<GlobalContext.Provider value={{
-        article: state.article,
-        createArticle,
-        editArticle,
-        deleteArticle
+        book: state.book,
+        createBook,
+        editBook,
+        deleteBook
     }}>
         {children}
     </GlobalContext.Provider>);
