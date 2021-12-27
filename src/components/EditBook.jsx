@@ -31,12 +31,12 @@ const EditBook = route => {
     history.push("/");
   };
 
+  
+
   return (
     <Fragment>
-      <div className="container Articleedit">
+      <div className="container">
         <h3>Edit Books</h3>
-        <br />
-        <br />
         <form onSubmit={onSubmit}>
           <div className="form-group">
             <label htmlFor="formGroupExampleInput">Book Title</label>
@@ -87,12 +87,12 @@ const EditBook = route => {
               onChange={e => handleOnChange("author", e.target.value)}
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-save-book mt-4">
             Save Book
           </button>
           <Link to="/">
             {" "}
-            <button type="button" className="btn">
+            <button type="button" className="btn btn-cancel-book mt-4">
               Cancel
             </button>
           </Link>

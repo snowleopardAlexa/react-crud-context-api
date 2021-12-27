@@ -10,14 +10,11 @@ const ListBook = () => {
     <Fragment>
       <div className="Articlelist">
         <div className="container">
-          <div className="row">
-            <div className="col-md-8">
-              <h3>Library</h3>
-            </div>
-            <div className="col-md-4 text-right">
+          <div className="row mx-auto d-block">
+            <div className="col-md-4">
               {book.length >= 1 ? (
                 <Link to="/create">
-                  <button type="button" className="btn btn-primary">
+                  <button type="button" className="btn btn-create-new-book">
                     Create New Book
                   </button>
                 </Link>
@@ -27,7 +24,7 @@ const ListBook = () => {
             </div>
           </div>
           <div>
-            <div className="listing">
+            <div className="book">
               <div className="row">
                 {book.length > 0 ? (
                   <div className="col-md-12">
@@ -43,17 +40,17 @@ const ListBook = () => {
                                 <span>{book.author}</span>
                               </Link>
                             </div>
-                            <div className="col-md-4 actionIcons text-right">
+                            <div className="col-md-4">
                               <Link to={`/edit/${book.id}`}>
                                 <div
                                   onClick={() => editBook(book.id)}
-                                  className="roundIcon"
+                                  className="edit-book"
                                 >
                                 <BsFillPencilFill />
                                 </div>
                               </Link>
-                              <div className="roundIcon">
-                                <button className="noBg" onClick={() => deleteBook(book.id)} >
+                              <div>
+                                <button className="btn-delete" onClick={() => deleteBook(book.id)} >
                                 <BsFillXCircleFill />
                                 </button>
                               </div>
