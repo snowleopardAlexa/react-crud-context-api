@@ -1,8 +1,15 @@
-import React, { Fragment } from 'react';
+import React, { useState, useContext } from 'react';
 
 const ListArticle = () => {
+
+const [heading, setHeading] = useState('');
+const [subheading, setsubHeading] = useState('');
+const [description, setDescription] = useState('');
+const [category, setCategory] = useState('');
+const [author, setAuthor] = useState('');
+
     return (
-       <Fragment>
+       <>
         <div className="container-article">
             <h3>Create Article</h3>
             <form>
@@ -26,7 +33,7 @@ const ListArticle = () => {
                 <button type="button" className="btn">Cancel</button>
             </form>
         </div>
-        </Fragment>
+        </>
     )
 }
 
