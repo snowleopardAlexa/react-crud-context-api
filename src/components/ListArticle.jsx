@@ -8,11 +8,23 @@ const [description, setDescription] = useState('');
 const [category, setCategory] = useState('');
 const [author, setAuthor] = useState('');
 
+const onSubmit = e => {
+    e.preventDefault();
+    const articleNew = {
+        id: article.length+1,
+        heading,
+        subheading,
+        description,
+        category,
+        author
+    }
+}
+
     return (
        <>
         <div className="container-article">
             <h3>Create Article</h3>
-            <form>
+            <form> onSubmit={onSubmit}
                 <div className="form-group">
                     <label htmlFor="formGroupExampleInput">Article Heading</label>
                     <input type="text" 
