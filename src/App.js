@@ -1,22 +1,24 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import { Route, Routes } from 'react-router-dom'
 import ListArticle from './components/ListArticle';
 import CreateArticle from './components/CreateArticle';
 import EditArticle from './components/EditArticle';
-import DeleteArticle from './components/DeleteArticle';
+import DetailArticle from './components/DetailArticle';
+
+import { GlobalProvider } from './context/GlobalState';
 
 function App() {
   return (
-    <div className="app">
-      <header className="header text-center">React CRUD App</header>
-      <Routes>
-        <Route path="/" element={<ListArticle />} />
-        <Route path="/" element={<CreateArticle />} />
-        <Route path="/" element={<EditArticle />} />
-        <Route path="/" element={<DeleteArticle />} />
-      </Routes>
-    </div>
+    <GlobalProvider>
+       <header className="text-center"><h5>React CRUD with Hooks and Context API</h5></header>
+       <Switch>
+        <Route path="/listarticle" component={ListArticle} exact/>
+        <Route path="/" component={CreateArticle} exact/>
+        <Route path="/edit/:id" component={EditArticle} exact/>
+        <Route path="/detail/:id" component={DetailArticle} exact/>
+      </Switch>
+    </GlobalProvider>
   );
 }
 
