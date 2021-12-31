@@ -10,14 +10,12 @@ function App() {
   return (
     <div className="app">
       <header className="header text-center">React CRUD App</header>
-      <Router>
       <Routes>
         <Route path="/listarticle" element={<ListArticle />} />
         <Route path="/" element={<CreateArticle />} />
         <Route path="/" element={<EditArticle />} />
         <Route path="/" element={<DeleteArticle />} />
       </Routes>
-      </Router>
     </div>
   );
 }
