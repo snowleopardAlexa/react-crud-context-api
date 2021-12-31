@@ -3,56 +3,57 @@ import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import {GlobalContext} from '../context/GlobalState';
 
-export const CreateArticle = () => {
-    const [heading, setHeading] = useState('');
-    const [subHeading, setSubHeading] = useState('');
+const CreateBook = () => {
+    const [title, setTitle] = useState('');
+    const [subTitle, setSubTitle] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
     const [author, setAuthor] = useState('');
-    const {createArticle, article} = useContext(GlobalContext);
+
+    const {createBook, book} = useContext(GlobalContext);
     let history = useHistory();
 
     const onSubmit= e =>{
         e.preventDefault();
-        const articleNew ={
-            id: article.length+1,
-            heading,
-            subHeading,
+        const bookNew ={
+            id: book.length+1,
+            title,
+            subTitle,
             description,
             category,
             author
         }
-        createArticle(articleNew);
+        createBook(bookNew);
         history.push("/");
     }
     return (
         <Fragment>
             <div className="container Articleedit">
-                <h3>Create Article</h3>
+                <h3>Create Book</h3>
                 <br />
                 <br />
               <form onSubmit={onSubmit}>
                 <div className="form-group">
-                  <label htmlFor="formGroupExampleInput">Article Heading</label>
-                  <input type="text" className="form-control" id="heading" value={heading} onChange={(e) => setHeading(e.target.value)}/>
+                  <label htmlFor="formGroupExampleInput">Book Title</label>
+                  <input type="text" className="form-control" id="heading" value={title} onChange={(e) => setTitle(e.target.value)}/>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="formGroupExampleInput">Sub Heading</label>
-                  <textarea className="form-control" id="exampleFormControlTextarea1" rows="2" value={subHeading} onChange={(e) => setSubHeading(e.target.value)}></textarea>
+                  <label htmlFor="formGroupExampleInput">Book Subtitle</label>
+                  <textarea className="form-control" id="exampleFormControlTextarea1" rows="2" value={subTitle} onChange={(e) => setSubTitle(e.target.value)}></textarea>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="formGroupExampleInput">Description</label>
+                  <label htmlFor="formGroupExampleInput">Book Description</label>
                   <textarea className="form-control" id="exampleFormControlTextarea1" rows="5" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="formGroupExampleInput">Article Category</label>
+                  <label htmlFor="formGroupExampleInput">Book Category</label>
                   <input type="text" className="form-control" id="category" value={category} onChange={(e) => setCategory(e.target.value)}/>
                 </div>
                 <div className="form-group">
                   <label htmlFor="formGroupExampleInput">Author Name</label>
                   <input type="text" className="form-control" id="author" value={author} onChange={(e) => setAuthor(e.target.value)}/>
                 </div>
-                <button type="submit" className="btn btn-primary">Save Article</button>
+                <button type="submit" className="btn btn-primary">Save Book</button>
                 <Link to='/'><button type="button" className="btn">Cancel</button></Link>
               </form>
             </div>
@@ -60,4 +61,4 @@ export const CreateArticle = () => {
     )
 }
 
-export default CreateArticle;
+export default CreateBook;
