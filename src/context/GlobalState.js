@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useReducer } from 'react';
 import Reducer from './Reducer';
 
 const initialState = {
@@ -12,7 +12,7 @@ export const GlobalProvider = ({ children }) => {
 
     function createArticle(article) {
         dispatch({
-          type: 'CREATE_ARTICLE';
+          type: 'CREATE_ARTICLE',
           payload: article
         })
     }
