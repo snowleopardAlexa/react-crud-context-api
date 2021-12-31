@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const ListArticle = () => {
     return (
-       <>
+       <Fragment>
         <div className="container-article">
             <h3>Create Article</h3>
             <form>
@@ -26,7 +26,7 @@ const ListArticle = () => {
                 <button type="button" className="btn">Cancel</button>
             </form>
         </div>
-       </>
+        </Fragment>
     )
 }
 
