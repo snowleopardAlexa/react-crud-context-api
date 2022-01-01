@@ -1,42 +1,50 @@
 import React, { createContext, useReducer } from 'react';
-import Reducer from './Reducer'
+import Reducer from './Reducer';
 
 const initialState = {
-    article: []
+    book: []
 }
 
+// shares data that can be considered global for a tree of React components
 export const GlobalContext = createContext(initialState);
-export const GlobalProvider = ({ children }) => {
-    const [state,dispatch] = useReducer(Reducer,initialState);
 
-    function createArticle(article){
-        dispatch({
-            type: 'CREATE_ARTICLE',
-            payload: article
+// 
+// dispatch - send off to a destination
+export const GlobalProvider = ({ children }) => {
+    const [state, dispatch] = useReducer(Reducer, initialState);
+
+    // create book function
+    function createBook(book) {
+        dispatch ({
+            type: 'CREATE_BOOK',
+            payload: book // payload - actual info or message in transmitted data as oppossed to automatically generated metadata
         })
     }
 
-    function deleteArticle(id) {
-        dispatch({
-            type: 'DELETE_ARTICLE',
-            payload: id
-        });
-    };
- 
+    // edit book function
+      function editBook(book) {
+        dispatch ({
+            type: 'EDIT_BOOK',
+            payload: book
+        })
+    }
 
-    function editArticle(article){
-        dispatch({
-            type: 'EDIT_ARTICLE',
-            payload: article
+    // delete book function
+    function deleteBook(id) {
+        dispatch ({
+            type: 'DELETE_BOOK',
+            payload: id
         })
     }
 
     return (<GlobalContext.Provider value={{
-        article: state.article,
-        createArticle,
-        editArticle,
-        deleteArticle
+          book: state.book,
+          createBook,
+          editBook,
+          deleteBook
     }}>
         {children}
-    </GlobalContext.Provider>);
+    </GlobalContext.Provider>); 
 }
+
+// payload contains the data you add to your database, the metadaata is along for ride to be logged out or captured in an error tracking system for diagnostic purposes if something goes wrong

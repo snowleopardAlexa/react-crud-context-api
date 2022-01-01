@@ -39,7 +39,7 @@ const CreateBook = () => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="formGroupExampleInput">Book Subtitle</label>
-                  <textarea className="form-control" id="exampleFormControlTextarea1" rows="2" value={subTitle} onChange={(e) => setSubTitle(e.target.value)}></textarea>
+                  <textarea className="form-control" id="exampleFormControlTextarea1" rows="1" value={subTitle} onChange={(e) => setSubTitle(e.target.value)}></textarea>
                 </div>
                 <div className="form-group">
                   <label htmlFor="formGroupExampleInput">Book Description</label>
@@ -53,8 +53,8 @@ const CreateBook = () => {
                   <label htmlFor="formGroupExampleInput">Author Name</label>
                   <input type="text" className="form-control" id="author" value={author} onChange={(e) => setAuthor(e.target.value)}/>
                 </div>
-                <button type="submit" className="btn btn-primary">Save Book</button>
-                <Link to='/'><button type="button" className="btn">Cancel</button></Link>
+                <button type="submit" className="btn btn-success mt-2">Save Book</button>
+                <Link to='/'><button type="button" className="btn btn-danger mt-2">Cancel</button></Link>
               </form>
             </div>
         </Fragment>
